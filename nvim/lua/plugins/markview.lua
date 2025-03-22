@@ -10,31 +10,36 @@ return {
     config = function()
       -- Setup markview plugin
       require("markview").setup({
-        buf_ignore = { "nofile" },
-        debounce = 50,
-        filetypes = { "markdown", "quarto", "rmd" },
         highlight_groups = "dynamic",
-        hybrid_modes = { "n" },
-        injections = {},
-        initial_state = true,
-        max_file_length = 1000,
-        modes = { "n", "no", "c" },
-        render_distance = 100,
-        split_conf = {},
+        preview = {
+          ignore_buftypes = { "nofile" },
+          debounce = 50,
+          filetypes = { "markdown", "quarto", "rmd" },
+          hybrid_modes = { "n" },
+          enable = true,
+          max_buf_lines = 1000,
+          modes = { "n", "no", "c" },
+          draw_range = 100,
+          splitview_winopts = {},
+        },
 
         -- Customize rendering options as needed
+        markdown = {
+          headings = {},
+          horizontal_rules = {},
+          list_items = {},
+          tables = {},
+        },
+
+        -- Other rendering options
         block_quotes = {},
         checkboxes = {},
         code_blocks = {},
         footnotes = {},
-        headings = {},
-        horizontal_rules = {},
         html = {},
         inline_codes = {},
         latex = {},
         links = {},
-        list_items = {},
-        tables = {},
       })
 
       -- Key mappings for markview commands

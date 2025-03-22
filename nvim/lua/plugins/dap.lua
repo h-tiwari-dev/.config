@@ -63,7 +63,7 @@ return {
         local current_file = vim.fn.expand("%:p")
         local output_file = vim.fn.expand("%:p:r")
 
-        local compile_cmd = string.format("g++ -g %s -o %s", current_file, output_file)
+        local compile_cmd = string.format("g++ -std=c++11 -g %s -o %s", current_file, output_file)
         local compile_result = vim.fn.system(compile_cmd)
 
         if vim.v.shell_error ~= 0 then
